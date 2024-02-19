@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="css/qmMDudyVQwPv.css">
 
 
+
 <style>
   .black {
     width: 100%;
@@ -201,9 +202,47 @@
 
 
 <body id="mycanvas" onclick="playSound()">
+<script>
+// Get the URL of your website.
+var myWebsiteUrl = "https://www.example.com";
 
+// Save the user's current session to a cookie every few minutes.
+setInterval(function() {
+  // Get the URLs of all the tabs that are currently open.
+  var urls = [];
+  for (var i = 0; i < window.tabs.length; i++) {
+    urls.push(window.tabs[i].url);
+  }
 
-     
+  // Get the scroll position of each tab.
+  var scrollPositions = [];
+  for (var i = 0; i < window.tabs.length; i++) {
+    scrollPositions.push(window.tabs[i].scrollTop);
+  }
+
+  // Save the URLs and scroll positions to a cookie.
+  document.cookie = "urls=" + JSON.stringify(urls) + "; scrollPositions=" + JSON.stringify(scrollPositions);
+}, 300000); // Save the session every 5 minutes.
+
+// When the user opens their browser again, check for the cookie that contains the saved session.
+window.onload = function() {
+  // Get the cookie that contains the saved session.
+  var cookie = document.cookie;
+
+  // If the cookie exists, restore the user's session.
+  if (cookie) {
+    // Get the URLs and scroll positions from the cookie.
+    var urls = JSON.parse(cookie.split("urls=")[1].split(";")[0]);
+    var scrollPositions = JSON.parse(cookie.split("scrollPositions=")[1].split(";")[0]);
+
+    // Check if the cookie contains the URL of your website.
+    if (urls.includes(myWebsiteUrl)) {
+      // Open your website in a new tab.
+      window.open(myWebsiteUrl);
+    }
+  }
+};
+</script> 
 
   <iframe src="https://support.microsoft.com/ja-jp" id="frame" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; ">
   </iframe>
